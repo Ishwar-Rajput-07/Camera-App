@@ -25,34 +25,51 @@
         <video height="200px" class="d-none" autoplay controls id="player"></video>
     </div>
 
+    <div class=" position-absolute" style="top: 50px; right: 50px;">
+        <button type="button" id="switchCamera" class="btn btn-outline-dark btn-lg">
+            <i class="bi bi-camera2"></i>
+        </button>
+
+    </div>
+
     <script>
 
         const startBtn = document.getElementById("start")
-
         const captureBtn = document.getElementById("capture")
         const closeBtn = document.getElementById("close")
         const player = document.getElementById("player")
 
+
+
+        const switchBtn = document.getElementById("switchCamera")
+
+        let mode = "user"
+        switchBtn.addEventListener("click", () => {
+            mode = "evironment"
+        })
+
+
         startBtn.addEventListener("click", async () => {
             console.log("start buttun clicked");
-
-
             // handleCamera Start
             if (navigator.mediaDevices) {
                 document.getElementById("loader").innerHTML = `
                opening camare <div class="spinner-border text-dark" ></div>
             `
                 startBtn.setAttribute("disabled", true)
-                const x = await navigator.mediaDevices.getUserMedia({
-                    video: {
-                        // facingMode:"user"
-                        facingMode: {
-                            exact: "environment"
-                        }
-                    }
+                try {
+                    const x = await navigator.mediaDevices.getUserMedia({
+                        video: {
+                            // facingMode:"user"
+                            facingMode: mode
 
-                })
-                player.srcObject = x
+                        }
+
+                    })
+                    player.srcObject = x
+                } catch (error) {
+                    console.log(ERROR);
+                }
                 document.getElementById("loader").innerHTML = ""
                 startBtn.removeAttribute("disabled")
 
