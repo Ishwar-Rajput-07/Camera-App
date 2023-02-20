@@ -46,48 +46,16 @@
         let mode = "user"
         switchBtn.addEventListener("click", () => {
             mode = "evironment"
+            const tracks = player.srcObject.getVideoTracks()
+            for (let i = 0; i < tracks.length; i++) {
+                tracks[i].stop()
+            }
+            openCamera()
         })
 
 
         startBtn.addEventListener("click", async () => {
-            console.log("start buttun clicked");
-            // handleCamera Start
-            if (navigator.mediaDevices) {
-                document.getElementById("loader").innerHTML = `
-               opening camare <div class="spinner-border text-dark" ></div>
-            `
-                startBtn.setAttribute("disabled", true)
-                try {
-                    const x = await navigator.mediaDevices.getUserMedia({
-                        video: {
-                            // facingMode:"user"
-                            facingMode: mode
-
-                        }
-
-                    })
-                    player.srcObject = x
-                } catch (error) {
-                    console.log(ERROR);
-                }
-                document.getElementById("loader").innerHTML = ""
-                startBtn.removeAttribute("disabled")
-
-            } else {
-                console.error("mediaDevices not supported");
-
-            }
-
-            captureBtn.classList.remove("d-none")
-            closeBtn.classList.remove("d-none")
-            startBtn.classList.add("d-none")
-            player.classList.remove("d-none")
-
-            // handleCamera end
-
-            // player.setAttribute("src", "./1.mp4")
-
-
+            openCamera()
         })
         captureBtn.addEventListener("click", () => {
             console.log("capture buttun clicked");
@@ -110,6 +78,41 @@
 
 
         })
+
+        const openCamera = async () => {
+            // handleCamera Start
+            if (navigator.mediaDevices) {
+                document.getElementById("loader").innerHTML = `
+               opening camare <div class="spinner-border text-dark" ></div>
+            `
+                startBtn.setAttribute("disabled", true)
+                try {
+                    const x = await navigator.mediaDevices.getUserMedia({
+                        video: {
+                            // facingMode:"user"
+                            facingMode: mode
+                        },
+
+                    })
+                    player.srcObject = x
+                } catch (error) {
+                    console.log(ERROR);
+                }
+                document.getElementById("loader").innerHTML = ""
+                startBtn.removeAttribute("disabled")
+
+            } else {
+                console.error("mediaDevices not supported");
+            }
+
+            captureBtn.classList.remove("d-none")
+            closeBtn.classList.remove("d-none")
+            startBtn.classList.add("d-none")
+            player.classList.remove("d-none")
+
+            // handleCamera end
+            // player.setAttribute("src", "./1.mp4")
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
