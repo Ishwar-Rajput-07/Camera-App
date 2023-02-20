@@ -26,7 +26,7 @@
     </div>
 
     <div class=" position-absolute" style="top: 50px; right: 50px;">
-        <button type="button" id="switchCamera" class="btn btn-outline-dark btn-lg">
+        <button type="button" id="switchCamera" class="btn btn-outline-dark btn-lg d-none">
             <i class="bi bi-camera2"></i>
         </button>
 
@@ -45,7 +45,8 @@
 
         let mode = "user"
         switchBtn.addEventListener("click", () => {
-            mode = "evironment"
+            mode = mode === "environment" ? "user" : "environment"
+            player.classList.add("d-none")
             const tracks = player.srcObject.getVideoTracks()
             for (let i = 0; i < tracks.length; i++) {
                 tracks[i].stop()
@@ -75,6 +76,8 @@
             closeBtn.classList.add("d-none")
             startBtn.classList.remove("d-none")
             player.classList.add("d-none")
+            switchBtn.classList.add("d-none")
+
 
 
         })
@@ -109,6 +112,9 @@
             closeBtn.classList.remove("d-none")
             startBtn.classList.add("d-none")
             player.classList.remove("d-none")
+            switchBtn.classList.remove("d-none")
+
+
 
             // handleCamera end
             // player.setAttribute("src", "./1.mp4")
