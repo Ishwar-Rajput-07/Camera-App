@@ -11,41 +11,61 @@
 
 <body>
 
+
     <div class="container  d-flex justify-content-center gap-3 align-items-end pb-5 vh-100 ">
 
-
+        <!-- <div class="spinner-border text-dark"></div> -->
         <button id="start" type="button" class="btn bt-gl btn-dark ">Start Camera </button>
         <button id="capture" type="button" class="btn btn-primary d-none">Capture <i class="bi bi-camera"></i></button>
         <button id="close" type="button" class="btn btn-warning d-none">Close <i class="bi bi-telephone-x"></i></button>
     </div>
 
     <div class="position-absolute top-50 start-50 translate-middle ">
+        <div id="loader" class="d-flex align-items-center gap-2"></div>
         <video height="200px" class="d-none" autoplay controls id="player"></video>
     </div>
 
     <script>
 
         const startBtn = document.getElementById("start")
+
         const captureBtn = document.getElementById("capture")
         const closeBtn = document.getElementById("close")
         const player = document.getElementById("player")
 
         startBtn.addEventListener("click", async () => {
             console.log("start buttun clicked");
-            captureBtn.classList.remove("d-none")
-            closeBtn.classList.remove("d-none")
-            startBtn.classList.add("d-none")
-            player.classList.remove("d-none")
+
 
             // handleCamera Start
             if (navigator.mediaDevices) {
-                const x = await navigator.mediaDevices.getUserMedia({ video: true })
+                document.getElementById("loader").innerHTML = `
+               opening camare <div class="spinner-border text-dark" ></div>
+            `
+                startBtn.setAttribute("disabled", true)
+                const x = await navigator.mediaDevices.getUserMedia({
+                    video: {
+                        // facingMode:"user"
+                        facingMode: {
+                            exact: "environment"
+                        }
+                    }
+
+                })
                 player.srcObject = x
+                document.getElementById("loader").innerHTML = ""
+                startBtn.removeAttribute("disabled")
 
             } else {
                 console.error("mediaDevices not supported");
 
             }
+
+            captureBtn.classList.remove("d-none")
+            closeBtn.classList.remove("d-none")
+            startBtn.classList.add("d-none")
+            player.classList.remove("d-none")
+
             // handleCamera end
 
             // player.setAttribute("src", "./1.mp4")
@@ -64,7 +84,6 @@
             const tracks = player.srcObject.getVideoTracks()
             for (let i = 0; i < tracks.length; i++) {
                 tracks[i].stop()
-
             }
 
             captureBtn.classList.add("d-none")
