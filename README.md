@@ -20,7 +20,7 @@
 
 ## Tech Stack
 
-**Client:** HTML, CSS, JAVASCRIPT 
+**Client:** HTML, Bootstrap , JAVASCRIPT 
 
 ## Features
 
@@ -30,7 +30,7 @@
 - Restart
 
 ## 🛠 Skills
-Javascript, HTML, CSS...
+Javascript, HTML, CSS , Bootstrap
 
 
 ## 🚀 About Me
