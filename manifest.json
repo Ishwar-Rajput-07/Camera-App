@@ -1,30 +1,34 @@
 {
-    "name": "Camera",
+    "name": "PWA-Camera",
+    "short_name": "Camera",
     "start_url": "/Camera-App",
-    "disply": "standlone",
+    "background_color": "pink",
+    "theme_color": "golden",
+    "display": "standalone",
+    "description": "Best Camera ever Created by Me",
     "icons": [
         {
-            "src": "./assets/images-48-48.png",
+            "src": "assets/images/Icon-48.png",
             "sizes": "48x48"
         },
         {
-            "src": "./assets/images-72-72.png",
+            "src": "assets/images/Icon-72.png",
             "sizes": "72x72"
         },
         {
-            "src": "./assets/images-96-96.png",
+            "src": "assets/images/Icon-96.png",
             "sizes": "96x96"
         },
         {
-            "src": "./assets/images-144-144.png",
+            "src": "assets/images/Icon-144.png",
             "sizes": "144x144"
         },
         {
-            "src": "./assets/images-192-192.png",
+            "src": "assets/images/Icon-192.png",
             "sizes": "192x192"
         },
         {
-            "src": "./assets/images-512-512.png",
+            "src": "assets/images/Icon-512.png",
             "sizes": "512x512"
         }
     ]
