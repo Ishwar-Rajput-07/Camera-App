@@ -3,32 +3,32 @@
     "short_name": "Camera",
     "start_url": "/Camera-App",
     "background_color": "pink",
-    "theme_color": "golden",
+    "theme_color": "green",
     "display": "standalone",
     "description": "Best Camera ever Created by Me",
     "icons": [
         {
-            "src": "assets/images/Icon-48.png",
+            "src": "./assets/images/Icon-48.png",
             "sizes": "48x48"
         },
         {
-            "src": "assets/images/Icon-72.png",
+            "src": "./assets/images/Icon-72.png",
             "sizes": "72x72"
         },
         {
-            "src": "assets/images/Icon-96.png",
+            "src": "./assets/images/Icon-96.png",
             "sizes": "96x96"
         },
         {
-            "src": "assets/images/Icon-144.png",
+            "src": "./assets/images/Icon-144.png",
             "sizes": "144x144"
         },
         {
-            "src": "assets/images/Icon-192.png",
+            "src": "./assets/images/Icon-192.png",
             "sizes": "192x192"
         },
         {
-            "src": "assets/images/Icon-512.png",
+            "src": "./assets/images/Icon-512.png",
             "sizes": "512x512"
         }
     ]
