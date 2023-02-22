@@ -6,4 +6,4 @@ export const switchBtn = document.getElementById("switchCamera")
 export const canvas = document.getElementById("canvas")
 export const restart = document.getElementById("restart")
 
-export let mode = "user"
+

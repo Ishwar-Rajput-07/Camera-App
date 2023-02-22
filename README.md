@@ -1,3 +1,6 @@
+## Demo
+
+[@Ishwar-Rajput-07](https://ishwar-rajput-07.github.io/Camera-App/7)
 
 # Authors
 
@@ -15,6 +18,16 @@
 
 - The PWA is designed to be fast and responsive, using modern web technologies like HTML5, CSS3, and JavaScript. It works offline, and can be installed on your device for quick and easy access. Additionally, the PWA can be shared with other people, allowing them to view your pictures.
 
+## Tech Stack
+
+**Client:** HTML, CSS, JAVASCRIPT 
+
+## Features
+
+- Start Camera
+- front And Back camera on 
+- Capture
+- Restart
 
 ## 🛠 Skills
 Javascript, HTML, CSS...
@@ -29,10 +42,5 @@ I'm a full stack developer...
 If you have any feedback, please reach out to us at ishwarrajput3446@gmail.com
 
 
-## Features
 
-- Start Camera
-- front And Back camera on 
-- Capture
-- Restart
 

@@ -6,8 +6,15 @@ import {
     restart,
     startBtn,
     switchBtn,
-    mode,
+
 } from "./constants.js"
+
+export let mode = "user"
+
+export const changeMode = (arg) => {
+    mode = mode === "user" ? "environment" : "user"
+}
+
 
 
 export const closeCamera = () => {
@@ -28,7 +35,7 @@ export const openCamera = async () => {
     // handleCamera Start
     if (navigator.mediaDevices) {
         document.getElementById("loader").innerHTML = `
-       opening camare...💥 <div class="spinner-border text-dark" ></div>
+       opening camare...💥📷 <div class="spinner-border text-dark" ></div>
     `
         startBtn.setAttribute("disabled", true)
         try {
